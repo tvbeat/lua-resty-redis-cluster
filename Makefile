@@ -1,8 +1,8 @@
-OPENRESTY_PREFIX=/usr/local/openresty
+OPENRESTY_PREFIX=/opt/openresty
 
-PREFIX ?=          /usr/local
-LUA_INCLUDE_DIR ?= $(PREFIX)/include
-LUA_LIB_DIR ?=     $(PREFIX)/lib/lua/$(LUA_VERSION)
+PREFIX ?=          /opt/openresty
+LUA_INCLUDE_DIR ?= $(PREFIX)/luajit/include/luajit-2.1
+LUA_LIB_DIR ?=     $(PREFIX)/lualib/$(LUA_VERSION)
 INSTALL ?= install
 
 CMPFLAG       = -c -fPIC
@@ -15,7 +15,7 @@ clean:
 	rm -rf lib/*.so lib/*.o
 
 lib/redis_slot.o:lib/redis_slot.c
-	$(CC) $(CMPFLAG) -o $@ $^
+	$(CC) $(CMPFLAG) -I$(LUA_INCLUDE_DIR) -o $@ $^
 
 lib/libredis_slot.so:lib/redis_slot.o
 	$(CC) $(LINKFLAG) -o $@ $^
