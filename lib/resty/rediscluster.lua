@@ -79,9 +79,9 @@ local commands = {
     --[["bgsave",]]      --[["blpop",]]    --[["brpop",]]
     --[["brpoplpush",]]  --[["config", ]]   --[["dbsize",]]
     --[["debug", ]]      "decr",              "decrby",
-    --[["del",]]         --[["discard",           "echo",]]
+    "del",         --[["discard",           "echo",]]
     --[["eval",]]              "exec",              "exists",
-    --[["expire",            "expireat",          "flushall",
+    "expire",            --[["expireat",          "flushall",
     "flushdb",]]           "get",               "getbit",
     "getrange",          "getset",            "hdel",
     "hexists",           "hget",              "hgetall",
